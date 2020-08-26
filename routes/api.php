@@ -13,6 +13,7 @@ Route::group(['middleware' => 'auth.jwt'] , function(){
     Route::resource('orders', 'Api\OrderController')->only(['store','show','destroy']);
     Route::get('order/all/{id}', 'Api\OrderController@all');
     Route::put('/users/{id}/edit', 'Api\UserController@update');
+    Route::get('/user-account', 'Api\UserController@index');
 });
 
 //Auth

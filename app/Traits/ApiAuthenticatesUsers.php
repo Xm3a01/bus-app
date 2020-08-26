@@ -21,7 +21,7 @@ trait  ApiAuthenticatesUsers
         if(!$token = JWTAuth::attempt($crads)){
             return response()->json(['error'=>'incorrect email/password',401]);
         }    
-        return response()->json(['token'=>$token , 'user'=>JWTAuth::user() , 'code' => 200]);
+        return response()->json(['token'=>$token , 'code' => 200]);
     }
 
     public function apiLogout($request)

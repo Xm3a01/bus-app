@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use JWTAuth;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -9,6 +10,10 @@ use App\Http\Controllers\Api\Controller;
 
 class UserController extends Controller
 {
+   public function index()
+   {
+      return response()->json(['user'=>JWTAuth::user() , 'code' => 200 ]);
+   }
     public function update($id , Request $request)
     {
         $user = User::findOrFail($id);
